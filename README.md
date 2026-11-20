@@ -20,7 +20,7 @@ JavaScript сохраняет список в localStorage после каждо
 
 ## Демонстрация
 
-- Live: https://todo-list-goodwaitik.vercel.app
+- Live: https://todo-list-6xlhdeeay-goodwaitik.vercel.app
 - Repository: https://github.com/Zomane/todo-list
 
 Проект развернут на Vercel.
