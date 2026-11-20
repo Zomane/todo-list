@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5fa">
+  <meta name="description" content="Личный список задач с сохранением в браузере.">
+  <title>Задачи на сегодня</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div class="brand"><span class="brand-icon" aria-hidden="true"></span> Мои задачи</div>
+      <div class="theme-picker" role="group" aria-label="Цветовая тема">
+        <button type="button" data-theme-choice="light" aria-label="Светлая тема" aria-pressed="true" title="Светлая тема"><span aria-hidden="true">☀︎</span></button>
+        <button type="button" data-theme-choice="dark" aria-label="Тёмная тема" aria-pressed="false" title="Тёмная тема"><span aria-hidden="true">☾</span></button>
+      </div>
+    </header>
+
+    <section class="overview" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">Задачи на сегодня</h1>
+        <p id="progress-text" aria-live="polite">0 из 0 выполнено</p>
+      </div>
+      <div class="progress" id="progress" aria-hidden="true">
+        <span id="progress-value">0%</span>
+      </div>
+    </section>
+
+    <section class="board" aria-labelledby="board-title">
+      <h2 id="board-title">Список задач</h2>
+      <form id="task-form">
+        <label class="visually-hidden" for="task-input">Новая задача</label>
+        <input id="task-input" name="task" type="text" placeholder="Что нужно сделать?" required maxlength="200" autocomplete="off" aria-describedby="task-error">
+        <button class="add" type="submit"><span aria-hidden="true">+</span> Добавить</button>
+      </form>
+      <p id="task-error" class="notice" role="alert" hidden>Введите название задачи.</p>
+      <p id="storage-error" class="notice" role="alert" hidden>Браузер не сохранил изменения. После обновления они могут пропасть.</p>
+
+      <div class="filters" role="group" aria-label="Фильтр задач">
+        <button type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button type="button" data-filter="active" aria-pressed="false">Активные</button>
+        <button type="button" data-filter="done" aria-pressed="false">Выполненные</button>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-label="Задачи"></ul>
+      <div id="empty" class="empty">
+        <div class="empty-icon" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p id="empty-title">Список пока пуст</p>
+        <p id="empty-hint">Добавьте задачу, чтобы начать.</p>
+      </div>
+      <p id="status" class="visually-hidden" role="status"></p>
+    </section>
+  </main>
+
+  <template id="task-template">
+    <li class="task">
+      <label class="task-label"><input type="checkbox"><span class="task-text"></span></label>
+      <button class="delete" type="button"><span aria-hidden="true">×</span></button>
+    </li>
+  </template>
+</body>
+</html>
