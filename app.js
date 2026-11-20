@@ -195,11 +195,7 @@ for (const button of themeButtons) {
   button.addEventListener("click", () => {
     const theme = button.dataset.themeChoice;
     applyTheme(theme);
-    try {
-      localStorage.setItem(themeKey, theme);
-    } catch {
-      // Keep the selected theme for this visit when storage is unavailable.
-    }
+    localStorage.setItem(themeKey, theme);
   });
 }
 
